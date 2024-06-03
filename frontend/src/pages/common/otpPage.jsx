@@ -1,6 +1,7 @@
 import React, { useState, useRef} from 'react';
 import OtpInput from 'react-otp-input';
 import Input from '../../components/inputComponent';
+import InputOtp from '../../components/otpInput';
 import Button from '../../components/buttonComponent';
 import Footer from '../../components/footerComponent';
 
@@ -8,7 +9,6 @@ import Footer from '../../components/footerComponent';
 const OtpPage = () => {
 
   const otpInputRef = useRef(null);
-  const [otp, setOtp] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -45,7 +45,8 @@ const OtpPage = () => {
           <p className="flex justify-left mb-2 text-sm font-semibold text-gray-700">
             Entrer code SMS
           </p>
-          <OtpInput
+          <OtpInput/>
+          {/* <OtpInput
             ref={otpInputRef}
             label="Entrer code SMS"
             value={otp}
@@ -54,7 +55,7 @@ const OtpPage = () => {
             shouldAutoFocus={true}
             renderSeparator={<span className="px-2"></span>}
             renderInput={(props) => <Input {...props} />}
-          />
+          /> */}
       
           <Button
             loading={loading}

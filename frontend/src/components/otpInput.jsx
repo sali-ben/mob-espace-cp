@@ -1,51 +1,35 @@
-import React, { useRef, useState } from "react";
+import OtpInput from "react-otp-input";
 import Input from './inputComponent';
+import { useState } from "react";
 
-const OtpInput = ({ size }) => {
-  const [otp, setOtp] = useState(Array(size).fill(""));
-  // const [activeCell, setActiveCell] = useState(0);
+export default function InputOtp() {
+  const [code, setCode] = useState("");
 
-  const inputRef = useRef(Array(size).fill(null));
-
-  const handleInputChange = (event, ind) => {
-    const { value } = event.target;
-
-    const updatedOtp = [...otp];
-    updatedOtp[ind] = value.slice(0, 1); //
-    setOtp(updatedOtp);
-
-    if (value !== "") {
-      if (ind < otp.length - 1) {
-        inputRef.current[ind + 1].focus();
-        // setActiveCell(ind)
-      } else {
-        console.log("OTP entered", updatedOtp.join(""));
-      }
-    }
-  };
-
-  const handleKeyDown = (event, ind) => {
-    if (event.key === "Backspace" && ind > 0 && otp[ind] === "") {
-      inputRef.current[ind - 1].focus();
-    }
-  };
+  const handleChange = (code) => setCode(code);
 
   return (
-    <div className="otp-container">
-      {otp.length &&
-        otp.map((digit, ind) => (
-          <Input
-            key={ind}
-            type="text"
-            value={digit}
-            onChange={(event) => handleInputChange(event, ind)}
-            ref={(ref) => (inputRef.current[ind] = ref)}
-            autoFocus={ind === 0}
-            onKeyDown={(event) => handleKeyDown(event, ind)}
-          />
-        ))}
-    </div>
+      <OtpInput
+        value={code}
+        onChange={handleChange}
+        numInputs={4}
+        renderSeparator={<span className="px-2"></span>}
+        isInputNum={true}
+        shouldAutoFocus={true}
+        renderInput={(props) => <Input {...props} />}
+        inputStyle={{
+          border: "1px solid transparent",
+          borderRadius: "8px",
+          width: "54px",
+          height: "54px",
+          fontSize: "12px",
+          color: "#000",
+          fontWeight: "400",
+          caretColor: "blue"
+        }}
+        focusStyle={{
+          border: "1px solid #CFD3DB",
+          outline: "none"
+        }}
+      />
   );
-};
-
-export default OtpInput;
+}
