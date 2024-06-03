@@ -1,9 +1,12 @@
 import "./App.css";
+import AuthPage from "./pages/common/auth";
+import OtpPage from "./pages/common/otpPage";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold text-[#e11d48] underline">Hello world !</h1>
+         {/* <AuthPage/> */}
+         <OtpPage/>
     </div>
   );
 }
