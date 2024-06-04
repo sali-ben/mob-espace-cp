@@ -1,30 +1,20 @@
 import React, { useState, useRef} from 'react';
-import OtpInput from 'react-otp-input';
 import Input from '../../components/inputComponent';
 import InputOtp from '../../components/otpInput';
 import Button from '../../components/buttonComponent';
 import Footer from '../../components/footerComponent';
-
+import OtpInput  from 'react-otp-input';
 
 const OtpPage = () => {
 
   const otpInputRef = useRef(null);
+  const [OTP, setOTP] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-//   const handleChange = () => {
-//     setOtp();
-//   if (otpInputRef.current) {
-//     otpInputRef.current.focus();
-//   }
+  const [otp, setOtp] = useState('');
 
-
-
-  const handleChange = otp => {
-    console.log(otp);
-    this.setOtp();
-  };
-  
+  const handleChange = (otp) => setOtp({ otp });
 
 
   return (
@@ -45,18 +35,29 @@ const OtpPage = () => {
           <p className="flex justify-left mb-2 text-sm font-semibold text-gray-700">
             Entrer code SMS
           </p>
-          <OtpInput/>
-          {/* <OtpInput
-            ref={otpInputRef}
-            label="Entrer code SMS"
+
+          <OtpInput
             value={otp}
             onChange={setOtp}
             numInputs={4}
-            shouldAutoFocus={true}
-            renderSeparator={<span className="px-2"></span>}
-            renderInput={(props) => <Input {...props} />}
-          /> */}
-      
+            renderSeparator={<span className='px-3'></span>}
+            renderInput={(props) => <input {...props} />}
+            inputStyle={{
+                border: "1px solid ",
+                borderRadius: "8px",
+                width: "45px",
+                height: "45px",
+                fontSize: "14px",
+                color: "#000",
+                fontWeight: "500",
+                caretColor: "blue"
+              }}
+              focusStyle={{
+                border: "1px solid #CFD3DB",
+                outline: "none"
+              }}
+          />
+
           <Button
             loading={loading}
             // onClick={signIn}

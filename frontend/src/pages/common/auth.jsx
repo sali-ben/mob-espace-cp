@@ -9,7 +9,7 @@ const AuthPage = () => {
   const [error, setError] = useState('');
 
   const signIn = () => {
-    // Add your sign-in logic here
+
   };
 
   return (
