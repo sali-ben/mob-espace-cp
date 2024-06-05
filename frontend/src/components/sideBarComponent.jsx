@@ -137,17 +137,17 @@ function SideBar() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800`} onClick={toggleSidebar}>
+    <div className={`min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800`} >
       {/* <button className="fixed z-10 top-6 left-6 bg-gray-200 px-2 py-1 rounded-md" >
         {titleHidden ? "Open" : "Close"}
       </button> */}
-      <div className={` ${!titleHidden ? 'fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r mt-12': 'fixed flex flex-col top-0 left-0 w-20 bg-white h-full border-r mt-12' }`}>
+<div className={`fixed flex flex-col top-0 left-0 bg-white h-full border-r mt-12 screen-sm ? 'w-16' : 'w-54'}`}>  
         <div className="overflow-y-auto overflow-x-hidden flex-grow">
           <ul className="flex flex-col py-4 space-y-1">
             <li className="px-5">
               <div className="flex flex-row items-center h-8">
                 <div className="text-sm font-light tracking-wide text-gray-500">
-                  Client
+                Client
                 </div>
               </div>
             </li>
@@ -157,7 +157,7 @@ function SideBar() {
                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-[#38B000] pr-6"
               >
                 <span className="inline-flex justify-center items-center ml-4">
-                  <CiUser size={24} />
+                  <CiUser size={24}  />
                 </span>
                 <span className={`ml-2 text-sm tracking-wide truncate ${titleHidden ? 'hidden sm:inline' : ''}`}>
                   Profile
@@ -170,7 +170,7 @@ function SideBar() {
                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-[#38B000] pr-6"
               >
                 <span className="inline-flex justify-center items-center ml-4">
-                  <FaRandom size={20} />
+                  <FaRandom size={20}  />
                 </span>
                 <span className={`ml-2 text-sm tracking-wide truncate ${titleHidden ? 'hidden sm:inline' : ''}`}>
                   Tirage au sort
