@@ -4,7 +4,6 @@ import OtpPage from "./pages/common/otpPage";
 import Navbar from './components/navBarComponent';
 import SideBar from './components/sideBarComponent';
 import Footer from "./components/footerComponent";
-import StepperComponent from "./components/stepperComponent";
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
          {/* <AuthPage/> */}
           <Navbar/>
           <SideBar/>
-          <StepperComponent/>
           <Footer/>
          {/* <OtpPage/> */}
     </div>
